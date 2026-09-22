@@ -4,12 +4,25 @@ using Microsoft.IdentityModel.Tokens;
 using RoleManagementBackend.Application;
 using RoleManagementBackend.Infrastructure;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Controllers and OpenAPI
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApi();
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 // Register Application & Infrastructure layer services
 builder.Services.AddApplication();
@@ -42,6 +55,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 

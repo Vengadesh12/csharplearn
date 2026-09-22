@@ -15,7 +15,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Designation> Designations => Set<Designation>();
     public DbSet<Department> Departments => Set<Department>();
     public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
-
+    public DbSet<Visitor> Visitors => Set<Visitor>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -125,6 +125,25 @@ public class ApplicationDbContext : DbContext
             entity.Property(a => a.Timestamp).HasColumnName("timestamp");
             entity.Property(a => a.IpAddress).HasColumnName("ip_address");
             entity.Property(a => a.UserAgent).HasColumnName("user_agent");
+        });
+
+        // ==========================================
+        // VISITORS TABLE MAPPING
+        // Table: "visitors"
+        // ==========================================
+        modelBuilder.Entity<Visitor>(entity =>
+        {
+            entity.ToTable("visitors");
+            entity.HasKey(v => v.Id);
+
+            entity.Property(v => v.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+            entity.Property(v => v.Name).HasColumnName("Name").HasMaxLength(150).IsRequired();
+            entity.Property(v => v.Email).HasColumnName("Email").HasMaxLength(200).IsRequired();
+            entity.Property(v => v.Phone).HasColumnName("Phone").HasMaxLength(20).IsRequired();
+            entity.Property(v => v.Company).HasColumnName("Company").HasMaxLength(200).IsRequired();
+            entity.Property(v => v.Purpose).HasColumnName("Purpose").HasMaxLength(500).IsRequired();
+            entity.Property(v => v.VisitDate).HasColumnName("VisitDate").HasColumnType("date").IsRequired();
+            entity.Property(v => v.CreatedAt).HasColumnName("CreatedAt").HasColumnType("timestamp without time zone").IsRequired();
         });
     }
 }
