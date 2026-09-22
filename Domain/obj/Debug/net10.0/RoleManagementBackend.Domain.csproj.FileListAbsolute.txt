@@ -1,0 +1,12 @@
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\bin\Debug\net10.0\RoleManagementBackend.Domain.deps.json
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\bin\Debug\net10.0\RoleManagementBackend.Domain.dll
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\bin\Debug\net10.0\RoleManagementBackend.Domain.pdb
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\RoleManagementBackend.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\RoleManagementBackend.Domain.AssemblyInfoInputs.cache
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\RoleManagementBackend.Domain.AssemblyInfo.cs
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\RoleManagementBackend.Domain.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\RoleManagementBackend.Domain.sourcelink.json
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\RoleManagementBackend.Domain.dll
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\refint\RoleManagementBackend.Domain.dll
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\RoleManagementBackend.Domain.pdb
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Domain\obj\Debug\net10.0\ref\RoleManagementBackend.Domain.dll

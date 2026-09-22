@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RoleManagementBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa82814e4bc8bedfd9c2c3ab5d070adcb9c2af01")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+410870968736d3ef7fe6b61b79592a2772a56f27")]
 [assembly: System.Reflection.AssemblyProductAttribute("RoleManagementBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RoleManagementBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

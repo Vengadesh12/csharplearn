@@ -8,12 +8,10 @@
     ".NETCoreApp,Version=v10.0": {
       "RoleManagementBackend/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.11",
           "Microsoft.AspNetCore.OpenApi": "10.0.11",
-          "Microsoft.EntityFrameworkCore": "10.0.12",
           "Microsoft.EntityFrameworkCore.Design": "10.0.12",
-          "Npgsql": "10.0.3",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3"
+          "RoleManagementBackend.Application": "1.0.0",
+          "RoleManagementBackend.Infrastructure": "1.0.0"
         },
         "runtime": {
           "RoleManagementBackend.dll": {}
@@ -594,6 +592,41 @@
             "fileVersion": "8.19.2.26195"
           }
         }
+      },
+      "RoleManagementBackend.Application/1.0.0": {
+        "dependencies": {
+          "RoleManagementBackend.Domain": "1.0.0"
+        },
+        "runtime": {
+          "RoleManagementBackend.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "RoleManagementBackend.Domain/1.0.0": {
+        "runtime": {
+          "RoleManagementBackend.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "RoleManagementBackend.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.11",
+          "Microsoft.EntityFrameworkCore": "10.0.12",
+          "Npgsql": "10.0.3",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
+          "RoleManagementBackend.Application": "1.0.0",
+          "RoleManagementBackend.Domain": "1.0.0"
+        },
+        "runtime": {
+          "RoleManagementBackend.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -847,6 +880,21 @@
       "sha512": "sha512-gqhDC/icByKEutygpr+OFgAmjwTVowyzFjWB8K0q1ww8uFj5a1BQNL+QvijUl9uhq4p8OdDwcAIrjVC+eC9FVA==",
       "path": "system.identitymodel.tokens.jwt/8.19.2",
       "hashPath": "system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512"
+    },
+    "RoleManagementBackend.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RoleManagementBackend.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RoleManagementBackend.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

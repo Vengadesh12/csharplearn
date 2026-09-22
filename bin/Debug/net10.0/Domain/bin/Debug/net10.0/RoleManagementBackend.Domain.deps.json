@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "RoleManagementBackend.Domain/1.0.0": {
+        "runtime": {
+          "RoleManagementBackend.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RoleManagementBackend.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

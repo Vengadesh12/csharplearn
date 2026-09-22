@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using RoleManagementBackend.Application.Interfaces;
 using RoleManagementBackend.Infrastructure.Persistence;
 using RoleManagementBackend.Infrastructure.Persistence.Repositories;
@@ -18,6 +20,7 @@ public static class DependencyInjection
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAuditLogRepository, AuditLogRepository>();
+        services.AddScoped<IVisitorRepository, VisitorRepository>();
 
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<IPasswordHasherService, PasswordHasherService>();

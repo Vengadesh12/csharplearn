@@ -1,0 +1,16 @@
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\bin\Debug\net10.0\RoleManagementBackend.Application.deps.json
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\bin\Debug\net10.0\RoleManagementBackend.Application.dll
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\bin\Debug\net10.0\RoleManagementBackend.Application.pdb
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\bin\Debug\net10.0\RoleManagementBackend.Domain.dll
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\bin\Debug\net10.0\RoleManagementBackend.Domain.pdb
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.csproj.AssemblyReference.cache
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.AssemblyInfoInputs.cache
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.AssemblyInfo.cs
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.sourcelink.json
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleMana.D07323B2.Up2Date
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.dll
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\refint\RoleManagementBackend.Application.dll
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\RoleManagementBackend.Application.pdb
+C:\xampp\htdocs\sharplearn\RoleManagementBackend\Application\obj\Debug\net10.0\ref\RoleManagementBackend.Application.dll

@@ -1,21 +1,19 @@
-using Microsoft.EntityFrameworkCore;
 using RoleManagementBackend.Application.DTOs;
 using RoleManagementBackend.Application.Interfaces;
 using RoleManagementBackend.Domain.Entities;
-using RoleManagementBackend.Infrastructure.Persistence;
 
 namespace RoleManagementBackend.Application.Services;
 
 public class VisitorService : IVisitorService
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IVisitorRepository _visitorRepository;
 
-    public VisitorService(ApplicationDbContext context)
+    public VisitorService(IVisitorRepository visitorRepository)
     {
-        _context = context;
+        _visitorRepository = visitorRepository;
     }
 
-    public async Task<Visitor> CreateVisitorAsync(VisitorCreateDto request)
+    public async Task<VisitorDto> CreateVisitorAsync(VisitorCreateDto request)
     {
         var visitor = new Visitor
         {
@@ -28,24 +26,34 @@ public class VisitorService : IVisitorService
             CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified)
         };
 
-        _context.Visitors.Add(visitor);
-        await _context.SaveChangesAsync();
-
-        return visitor;
+        var savedVisitor = await _visitorRepository.AddAsync(visitor);
+        return MapToDto(savedVisitor);
     }
 
-    public async Task<List<Visitor>> GetVisitorsAsync()
+    public async Task<List<VisitorDto>> GetVisitorsAsync()
     {
-        return await _context.Visitors
-            .AsNoTracking()
-            .OrderByDescending(x => x.Id)
-            .ToListAsync();
+        var visitors = await _visitorRepository.GetAllAsync();
+        return visitors.Select(MapToDto).ToList();
     }
 
-    public async Task<Visitor?> GetVisitorByIdAsync(long id)
+    public async Task<VisitorDto?> GetVisitorByIdAsync(long id)
     {
-        return await _context.Visitors
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == id);
+        var visitor = await _visitorRepository.GetByIdAsync(id);
+        return visitor == null ? null : MapToDto(visitor);
+    }
+
+    private static VisitorDto MapToDto(Visitor visitor)
+    {
+        return new VisitorDto
+        {
+            Id = visitor.Id,
+            Name = visitor.Name,
+            Email = visitor.Email,
+            Phone = visitor.Phone,
+            Company = visitor.Company,
+            Purpose = visitor.Purpose,
+            VisitDate = visitor.VisitDate,
+            CreatedAt = visitor.CreatedAt
+        };
     }
 }

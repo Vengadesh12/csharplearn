@@ -815,6 +815,50 @@
             "related": ".xml"
           }
         }
+      },
+      "RoleManagementBackend.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "RoleManagementBackend.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RoleManagementBackend.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RoleManagementBackend.Application.dll": {}
+        }
+      },
+      "RoleManagementBackend.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/RoleManagementBackend.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RoleManagementBackend.Domain.dll": {}
+        }
+      },
+      "RoleManagementBackend.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.11",
+          "Microsoft.EntityFrameworkCore": "10.0.12",
+          "Npgsql": "10.0.3",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
+          "RoleManagementBackend.Application": "1.0.0",
+          "RoleManagementBackend.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RoleManagementBackend.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RoleManagementBackend.Infrastructure.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -2572,16 +2616,29 @@
         "system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
       ]
+    },
+    "RoleManagementBackend.Application/1.0.0": {
+      "type": "project",
+      "path": "Application/RoleManagementBackend.Application.csproj",
+      "msbuildProject": "Application/RoleManagementBackend.Application.csproj"
+    },
+    "RoleManagementBackend.Domain/1.0.0": {
+      "type": "project",
+      "path": "Domain/RoleManagementBackend.Domain.csproj",
+      "msbuildProject": "Domain/RoleManagementBackend.Domain.csproj"
+    },
+    "RoleManagementBackend.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "Infrastructure/RoleManagementBackend.Infrastructure.csproj",
+      "msbuildProject": "Infrastructure/RoleManagementBackend.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.11",
       "Microsoft.AspNetCore.OpenApi >= 10.0.11",
-      "Microsoft.EntityFrameworkCore >= 10.0.12",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.12",
-      "Npgsql >= 10.0.3",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.3"
+      "RoleManagementBackend.Application >= 1.0.0",
+      "RoleManagementBackend.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2609,7 +2666,14 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\xampp\\htdocs\\sharplearn\\RoleManagementBackend\\Application\\RoleManagementBackend.Application.csproj": {
+              "projectPath": "C:\\xampp\\htdocs\\sharplearn\\RoleManagementBackend\\Application\\RoleManagementBackend.Application.csproj"
+            },
+            "C:\\xampp\\htdocs\\sharplearn\\RoleManagementBackend\\Infrastructure\\RoleManagementBackend.Infrastructure.csproj": {
+              "projectPath": "C:\\xampp\\htdocs\\sharplearn\\RoleManagementBackend\\Infrastructure\\RoleManagementBackend.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2629,31 +2693,15 @@
         "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication.JwtBearer": {
-            "target": "Package",
-            "version": "[10.0.11, )"
-          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[10.0.11, )"
-          },
-          "Microsoft.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "[10.0.12, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.12, )"
-          },
-          "Npgsql": {
-            "target": "Package",
-            "version": "[10.0.3, )"
-          },
-          "Npgsql.EntityFrameworkCore.PostgreSQL": {
-            "target": "Package",
-            "version": "[10.0.3, )"
           }
         },
         "imports": [

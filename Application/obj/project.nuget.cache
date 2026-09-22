@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4H1xQQX6vFw=",
+  "success": true,
+  "projectFilePath": "C:\\xampp\\htdocs\\sharplearn\\RoleManagementBackend\\Application\\RoleManagementBackend.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

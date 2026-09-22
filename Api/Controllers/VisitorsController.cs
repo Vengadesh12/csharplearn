@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RoleManagementBackend.Application.Common;
 using RoleManagementBackend.Application.DTOs;
 using RoleManagementBackend.Application.Interfaces;
 
@@ -22,109 +23,39 @@ public class VisitorsController : ControllerBase
     {
         if (request == null)
         {
-            return BadRequest(new
-            {
-                success = false,
-                message = "Request body cannot be null"
-            });
+            return BadRequest(ApiResponse<VisitorDto>.Fail("Request body cannot be null."));
         }
 
         if (!ModelState.IsValid)
         {
-            return BadRequest(new
-            {
-                success = false,
-                message = "Validation failed",
-                errors = ModelState
-            });
+            var errors = string.Join("; ", ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage));
+
+            return BadRequest(ApiResponse<VisitorDto>.Fail("Validation failed.", error: errors));
         }
 
-        try
-        {
-            var visitor = await _visitorService.CreateVisitorAsync(request);
-
-            return Ok(new
-            {
-                success = true,
-                message = "Visitor registered successfully",
-                data = new
-                {
-                    visitor.Id,
-                    visitor.Name,
-                    visitor.Email,
-                    visitor.Phone,
-                    visitor.Company,
-                    visitor.Purpose,
-                    visitor.VisitDate,
-                    visitor.CreatedAt
-                }
-            });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new
-            {
-                success = false,
-                message = "Failed to save visitor",
-                error = ex.Message
-            });
-        }
+        var visitor = await _visitorService.CreateVisitorAsync(request);
+        return Ok(ApiResponse<VisitorDto>.Ok(visitor, "Visitor registered successfully."));
     }
 
     [HttpGet]
     public async Task<IActionResult> GetVisitors()
     {
-        try
-        {
-            var visitors = await _visitorService.GetVisitorsAsync();
-
-            return Ok(new
-            {
-                success = true,
-                data = visitors
-            });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new
-            {
-                success = false,
-                message = "Failed to get visitors",
-                error = ex.Message
-            });
-        }
+        var visitors = await _visitorService.GetVisitorsAsync();
+        return Ok(ApiResponse<List<VisitorDto>>.Ok(visitors));
     }
 
     [HttpGet("{id:long}")]
     public async Task<IActionResult> GetVisitor(long id)
     {
-        try
-        {
-            var visitor = await _visitorService.GetVisitorByIdAsync(id);
+        var visitor = await _visitorService.GetVisitorByIdAsync(id);
 
-            if (visitor == null)
-            {
-                return NotFound(new
-                {
-                    success = false,
-                    message = "Visitor not found"
-                });
-            }
-
-            return Ok(new
-            {
-                success = true,
-                data = visitor
-            });
-        }
-        catch (Exception ex)
+        if (visitor == null)
         {
-            return StatusCode(500, new
-            {
-                success = false,
-                message = "Failed to get visitor",
-                error = ex.Message
-            });
+            return NotFound(ApiResponse<VisitorDto>.Fail($"Visitor with ID {id} was not found."));
         }
+
+        return Ok(ApiResponse<VisitorDto>.Ok(visitor));
     }
 }
