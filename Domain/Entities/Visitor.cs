@@ -17,4 +17,6 @@ public class Visitor
     public DateTime VisitDate { get; set; }
 
     public DateTime CreatedAt { get; set; }
+
+    public ICollection<VisitorActivity> VisitorActivities { get; set; } = new List<VisitorActivity>();
 }

@@ -16,7 +16,7 @@ public static class DependencyInjection
             ?? "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=Test;";
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(connectionString));
+            options.UseNpgsql(connectionString, b => b.MigrationsAssembly("RoleManagementBackend")));
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAuditLogRepository, AuditLogRepository>();
