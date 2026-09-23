@@ -29,6 +29,8 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<VisitorActivity> VisitorActivities => Set<VisitorActivity>();
 
+    public DbSet<SameVisitorsCount> SameVisitorsCounts => Set<SameVisitorsCount>();
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -315,6 +317,42 @@ public class ApplicationDbContext : DbContext
                 .WithMany(v => v.VisitorActivities)
                 .HasForeignKey(v => v.VisitorId)
                 .OnDelete(DeleteBehavior.Cascade);
+        });
+
+
+        // ==========================================
+        // SAME VISITORS COUNT TABLE MAPPING
+        // Table: "samevistorscount"
+        // ==========================================
+
+        modelBuilder.Entity<SameVisitorsCount>(entity =>
+        {
+            entity.ToTable("samevistorscount");
+
+            entity.HasKey(s => s.Id);
+
+            entity.Property(s => s.Id)
+                .HasColumnName("Id")
+                .ValueGeneratedOnAdd();
+
+            entity.Property(s => s.Phone)
+                .HasColumnName("Phone")
+                .HasMaxLength(20)
+                .IsRequired();
+
+            entity.Property(s => s.Email)
+                .HasColumnName("Email")
+                .HasMaxLength(200)
+                .IsRequired();
+
+            entity.Property(s => s.VisitCount)
+                .HasColumnName("VisitCount")
+                .IsRequired();
+
+            entity.Property(s => s.LastVisitDate)
+                .HasColumnName("LastVisitDate")
+                .HasColumnType("timestamp without time zone")
+                .IsRequired();
         });
     }
 }

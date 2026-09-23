@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RoleManagementBackend.Application.Interfaces;
 using RoleManagementBackend.Infrastructure.Persistence;
+using RoleManagementBackend.Infrastructure.Persistence.Interceptors;
 using RoleManagementBackend.Infrastructure.Persistence.Repositories;
 using RoleManagementBackend.Infrastructure.Security;
 
@@ -16,7 +17,10 @@ public static class DependencyInjection
             ?? "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=Test;";
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(connectionString, b => b.MigrationsAssembly("RoleManagementBackend")));
+        {
+            options.UseNpgsql(connectionString, b => b.MigrationsAssembly("RoleManagementBackend"))
+                   .AddInterceptors(new MigrationHistorySyncInterceptor());
+        });
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAuditLogRepository, AuditLogRepository>();

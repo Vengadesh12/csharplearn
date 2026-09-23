@@ -4,6 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using RoleManagementBackend.Api.Middleware;
 using RoleManagementBackend.Application;
 using RoleManagementBackend.Infrastructure;
+using RoleManagementBackend.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
@@ -51,6 +53,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+// Automatically apply pending migrations and ensure database schema is up to date
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+}
 
 // Register Global Exception Handling Middleware
 app.UseMiddleware<ExceptionHandlingMiddleware>();

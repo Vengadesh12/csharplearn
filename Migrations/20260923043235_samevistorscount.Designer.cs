@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RoleManagementBackend.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using RoleManagementBackend.Infrastructure.Persistence;
 namespace RoleManagementBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260923043235_samevistorscount")]
+    partial class samevistorscount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -366,11 +369,6 @@ namespace RoleManagementBackend.Migrations
                     b.Navigation("AuditLogs");
                 });
 
-            modelBuilder.Entity("RoleManagementBackend.Domain.Entities.Visitor", b =>
-                {
-                    b.Navigation("VisitorActivities");
-                });
-
             modelBuilder.Entity("RoleManagementBackend.Domain.Entities.SameVisitorsCount", b =>
                 {
                     b.Property<long>("Id")
@@ -403,6 +401,11 @@ namespace RoleManagementBackend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("samevistorscount", (string)null);
+                });
+
+            modelBuilder.Entity("RoleManagementBackend.Domain.Entities.Visitor", b =>
+                {
+                    b.Navigation("VisitorActivities");
                 });
 #pragma warning restore 612, 618
         }
